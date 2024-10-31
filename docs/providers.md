@@ -82,7 +82,7 @@ litellm --model gpt-4-turbo
 Start Llama.cpp in the terminal with this Docker command:
 
 ```bash
-docker run -p 8080:8080 --gpus all --network bridge -v /home/<user>/.cache/lm-studio/models/TheBloke/CodeLlama-7B-GGUF/:/models local/llama.cpp:full-cuda --server -m /models/codellama-7b.Q5_K_M.gguf -c 2048 -ngl 43 -mg 1 --port 8080 --host 0.0.0.0
+docker run -p 8080:8080 --gpus all --network bridge -v /home/<user>/.cache/lm-studio/models/TheBloke/CodeLlama-7B-GGUF/:/models local/llama.cpp:full-cuda --server -m /models/codellama-7b.Q5_K_M.gguf -c 2048 -ngl 43 -mg 1 --port 8080 --host 10.184.102.41
 ```
 
 Configure your provider settings as follows:
@@ -110,7 +110,7 @@ bash start_linux.sh --api --listen
 
 #### FIM (Auto-complete)
 
-Navigate to `http://0.0.0.0:7860/` to load your model:
+Navigate to `http://10.184.102.41:7860/` to load your model:
 
 - **Hostname:** `localhost`
 - **Port:** `5000`

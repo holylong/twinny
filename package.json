@@ -363,8 +363,8 @@
         "twinny.ollamaHostname": {
           "order": 14,
           "type": "string",
-          "default": "0.0.0.0",
-          "markdownDescription": "Specifies the hostname for the Ollama API. Use `0.0.0.0` for localhost or provide a specific IP address or domain name.",
+          "default": "10.184.102.41",
+          "markdownDescription": "Specifies the hostname for the Ollama API. Use `10.184.102.41` for localhost or provide a specific IP address or domain name.",
           "required": true
         },
         "twinny.ollamaApiPort": {

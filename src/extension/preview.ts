@@ -20,8 +20,21 @@ export class CodePreviewPanel {
   }
 
   public previewCode(message: ClientMessage) {
+    if (CodePreviewPanel.currentPanel) {
+      // 如果面板已存在，直接更新内容
+      CodePreviewPanel.currentPanel.updateCode(message);
+    } else {
+      // 如果面板不存在，创建新面板
+      const panel = new CodePreviewPanel();
+      panel.updateCode(message);
+      CodePreviewPanel.currentPanel = panel;
+    }
+  }
+
+  public updateCode(message: ClientMessage) {
     this._panel.webview.html = this._getWebviewContent(message.data as string);
   }
+
 
   public dispose() {
     CodePreviewPanel.currentPanel = undefined;

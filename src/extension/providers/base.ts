@@ -374,7 +374,6 @@ export class BaseProvider {
 
   private openPreview = async (message: ClientMessage) => {
     await this._previewManager.previewCode(message)
-    // await CodePreviewPanel.createOrShow(message)
   }
 
   private acceptSolution = async (message: ClientMessage) => {

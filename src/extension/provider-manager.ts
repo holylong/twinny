@@ -89,7 +89,7 @@ export class ProviderManager {
 
   getDefaultChatProvider() {
     return {
-      apiHostname: "0.0.0.0",
+      apiHostname: "10.184.102.41",
       apiPath: "/v1/chat/completions",
       apiPort: 11434,
       apiProtocol: "http",
@@ -103,7 +103,7 @@ export class ProviderManager {
 
   getDefaultEmbeddingsProvider() {
     return {
-      apiHostname: "0.0.0.0",
+      apiHostname: "10.184.102.41",
       apiPath: "/api/embed",
       apiPort: 11434,
       apiProtocol: "http",
@@ -117,7 +117,7 @@ export class ProviderManager {
 
   getDefaultFimProvider() {
     return {
-      apiHostname: "0.0.0.0",
+      apiHostname: "10.184.102.41",
       apiPath: "/api/generate",
       apiPort: 11434,
       apiProtocol: "http",

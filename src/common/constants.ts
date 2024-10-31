@@ -255,7 +255,7 @@ export const DEFAULT_ACTION_TEMPLATES = [
 ]
 
 export const DEFAULT_PROVIDER_FORM_VALUES = {
-  apiHostname: "0.0.0.0",
+  apiHostname: "10.184.102.41",
   apiKey: "",
   apiPath: "",
   apiPort: 11434,
