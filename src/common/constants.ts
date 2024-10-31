@@ -63,6 +63,7 @@ export const EVENT_NAME = {
   twinnyOnEnd: "twinny-on-end",
   twinnyOnLoading: "twinny-on-loading",
   twinnyOpenDiff: "twinny-open-diff",
+  twinnyPreviewCode: "twinny-preview-code",
   twinnyRerankThresholdChanged: "twinny-rerank-threshold-changed",
   twinnySendLanguage: "twinny-send-language",
   twinnySendLoader: "twinny-send-loader",

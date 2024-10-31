@@ -21,6 +21,7 @@ import {
 import { ChatService } from "../chat-service"
 import { ConversationHistory } from "../conversation-history"
 import { DiffManager } from "../diff"
+import { CodePreviewPanel } from "../preview"
 import { EmbeddingDatabase } from "../embeddings"
 import { OllamaService } from "../ollama"
 import { ProviderManager } from "../provider-manager"
@@ -41,6 +42,7 @@ import {
 export class BaseProvider {
   private _chatService: ChatService | undefined
   private _diffManager = new DiffManager()
+  private _previewManager = new CodePreviewPanel()
   private _embeddingDatabase: EmbeddingDatabase | undefined
   private _fileTreeProvider: FileTreeProvider
   private _ollamaService: OllamaService | undefined
@@ -70,6 +72,7 @@ export class BaseProvider {
     this._statusBarItem = statusBar
     this._templateDir = templateDir
     this._templateProvider = new TemplateProvider(templateDir)
+    // this._previewManager = new CodePreviewPanel(vscode.Uri.parse(this.context.extensionUri))
   }
 
   public registerWebView(webView: vscode.Webview) {
@@ -133,6 +136,7 @@ export class BaseProvider {
       [EVENT_NAME.twinnyNewDocument]: this.createNewUntitledDocument,
       [EVENT_NAME.twinnyNotification]: this.sendNotification,
       [EVENT_NAME.twinnyOpenDiff]: this.openDiff,
+      [EVENT_NAME.twinnyPreviewCode]: this.openPreview,
       [EVENT_NAME.twinnySendLanguage]: this.getCurrentLanguage,
       [EVENT_NAME.twinnySendTheme]: this.getTheme,
       [EVENT_NAME.twinnySessionContext]: this.getSessionContext,
@@ -366,6 +370,11 @@ export class BaseProvider {
 
   private openDiff = async (message: ClientMessage) => {
     await this._diffManager.openDiff(message)
+  }
+
+  private openPreview = async (message: ClientMessage) => {
+    await this._previewManager.previewCode(message)
+    // await CodePreviewPanel.createOrShow(message)
   }
 
   private acceptSolution = async (message: ClientMessage) => {

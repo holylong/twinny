@@ -52,6 +52,17 @@ export const CodeBlock = (props: CodeBlockProps) => {
     })
   }
 
+  const handlePreview = () => {
+    if (["html", "javascript", "css"].includes(lang)) {
+      global.vscode.postMessage({
+        type: EVENT_NAME.twinnyPreviewCode,
+        data: String(children).replace(/^\n/, ""),
+      })
+    } else {
+      alert("仅支持 HTML, JavaScript 和 CSS 预览")
+    }
+  }
+
   return (
     <>
       <SyntaxHighlighter
@@ -89,6 +100,13 @@ export const CodeBlock = (props: CodeBlockProps) => {
               appearance="icon"
             >
               <span className="codicon codicon-diff"></span>
+            </VSCodeButton>
+            <VSCodeButton
+              title="预览代码效果"
+              onClick={handlePreview}
+              appearance="icon"
+            >
+              <span className="codicon codicon-eye"></span>
             </VSCodeButton>
           </div>
         </>

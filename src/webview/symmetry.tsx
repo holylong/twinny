@@ -69,6 +69,7 @@ export const Symmetry = () => {
   )
 
   useEffect(() => {
+    setAutoConnectProviderContext(true)
     if (models.length > 0 && !selectedModel) {
       setSelectedModel(models[0])
     }
